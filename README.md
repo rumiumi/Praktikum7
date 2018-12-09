@@ -1,7 +1,7 @@
-# praktikum7
+# Praktikum7
 
 
-##latihan1 : fibonacci iteratif
+## Latihan1 : Fibonacci Iteratif
 
 **Alur Algoritma**
 
@@ -11,7 +11,21 @@
 3. Deskripsikan variabel untuk mencetak fungsi selanjutnya
 4. Cetak suku fibonacci menggunakan pemanggilan iteratif
 
-**kode lengkap program**
+**pseudocode**
+```
+read (n)
+for (c=0;c < n ; c++ )then
+if (c<=1)
+next = c
+else
+next <- f1 + f2;
+f1 <- f2;
+f2 <- next;
+write (next)
+end
+```
+
+**Berikut code lengkap program**
 ```C++
 #include <iostream>
 using namespace std;
@@ -33,7 +47,7 @@ for (c=0;c < n ; c++ )
       else
 
       {
-
+\
          next = f1 + f2;
 
          f1 = f2;
@@ -60,25 +74,11 @@ return 0;
 }
 ```
 
-**pseudocode**
-```
-read (n)
-for (c=0;c < n ; c++ )then
-if (c<=1)
-next = c
-else
-next <- f1 + f2;
-f1 <- f2;
-f2 <- next;
-write (next)
-end
-```
-
 **hasilnya**
-![hasilnya](https://github.com/iisamelia/praktikum7/blob/master/hasil1.PNG)
+![hasilnya](https://github.com/rumiumi/Praktikum7/blob/master/hasil1.PNG)
 
 
-##latihan2:Menghitung hasil perkalian menggunakan operator penjumlahan
+## Latihan2: Menghitung Hasil Perkalian Menggunakan Operator Penjumlahan
 
 **Alur Algoritma**
 1. Mulai Program
@@ -86,7 +86,19 @@ end
 3. jika nilai interger (hasil = 0) return hasil
 4. cetak nilai perkalian dengan memanggil fungsi rekrusif menggunakan type datanya
 
-**kode lengkap program**
+**pseudocode**
+```
+read x
+read y
+hasil <- 0
+for i <- 0 to y do
+hasil <- hasil + x
+end for
+write hasil
+end
+```
+
+**Berikut code lengkap program**
 ```c++
 #include <iostream>
 using namespace std;
@@ -109,66 +121,77 @@ return 0;
 }
 ```
 
-**pseudocode**
-```
-read x
-read y
-hasil <- 0
-for i <- 0 to y do
-hasil <- hasil + x
-end for
-write hasil
-end
-```
-
 **hasilnya**
-![hasilnya](https://github.com/iisamelia/praktikum7/blob/master/hasil2.PNG)
+![hasilnya](https://github.com/rumiumi/Praktikum7/blob/master/hasil2.PNG)
 
-##latihan3
+## Latihan3: Code Rekursif dan Iteratif
 
 **Alur Algoritma**
-1. Mulai program tersebut
-2. input menggunakan initruksi void dan menggunakan pointer untuk menetapakan void typedata (char *s)
-3. jika nilai s!=0--> menggunakan Pointer(*) maka masukan intruksi membalik (&s[1])
-4. masuan char untuk intruksi kata yang ingin kita ubah dan intruksi balik
-5. cetak pemblikan kata dengan memanggil funsi rekrusif menggunkan type datany.
-
-**kode lengkap program**
-```c++
-#include<iostream>
-#include<string.h>
-
-using namespace std;
-void balik(char *s)
-{ if (*s != '\0'){
-balik(&s[1]);
-cout << s[0];
-}
-}
-int main()
-{
-      char* kata = (char*) "iis";
-    balik(kata); cout << endl;
-    return 0;
-
-}
-```
+1. Deklarasi fungsi `int kali1` deklarasi variabel `hasil=0` pengulangan setiap `i<b` melakukan `hasil=hasil+a`
+2. Deklarasi fungsi `int kali2` jika `b==0` maka `return 1` selain itu jika `b==1` maka `return a` selain itu `return a+kali2(a,b-1)`
+3. Fungsi utama, deklarasi variabel `int a,b`
+4. Input `cin>>a>>b`
+5. Panggil fungsi `cout>>kali1(a,b)>>kali2(a,b)`
 
 **pseudocode**
 ```
-#include
-#include
-void balik(char *k){
-if(*k!=”){
-balik(&k[1]);
-cout<
-}
-}main(){
-char *kata=”....”;--> //untuk masukan kata
-balik(kata);
-cout<
-return 0;
+kali1
+for i <- 0 to b do 
+hasil <- hasil + a
+
+kali2
+if(b=0)
+return 1
+else if (b=1)
+return a
+else
+return a+kali2(a,b-1)
+
+read a
+read b
+write kali1
+write kali2
+
+```
+
+**Berikut code lengkap program**
+```c++
+#include <iostream>
+
+using namespace std;
+
+ int kali1(int a, int b){
+    int hasil =0;
+    for(int i=0;i<b;i++){
+        hasil=hasil+a;
+    }
+    return hasil;
+ }
+
+ int kali2(int a, int b){
+    if(b==0)
+        return 1;
+    else if(b==1)
+            return a;
+        else
+            return a+kali2(a,b-1);
+ }
+
+ int main(int argc, char *argv[]){
+    int a,b;
+    cout<<"masukkan a :";
+    cin>>a;
+    cout<<"masukkan b :";
+    cin>>b;
+    cout<<"secara ITERATIF :"<<endl;
+    cout<<kali1(a,b)<<endl;
+    cout<<"secara REKURSIF"<<endl;
+    cout<<kali2(a,b)<<endl;
+
+ return 0;
+ }
+
 ```
 
 **hasilnya**
-![hasilnya](https://github.com/iisamelia/praktikum7/blob/master/hasil3.PNG)
+![hasilnya](https://github.com/rumiumi/Praktikum7/blob/master/hasil3.PNG)
